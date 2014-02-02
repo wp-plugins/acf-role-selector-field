@@ -5,4 +5,8 @@ Welcome to the role selector for Advanced custom fields. For information about t
 -----------------------
 
 * Readme : https://github.com/danielpataki/acf-role_selector/blob/master/readme.txt
-* WordPress repository: http://wordpress.org/extend/plugins/acf-role-selector/
+* WordPress repository: http://wordpress.org/plugins/acf-role-selector-field/
+
+-----------------------
+
+Special thanks to [Elliot Condon](http://elliotcondon.com) for making the wonderful [ACF plugin](advancedcustomfields.com) in the first place.
