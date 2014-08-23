@@ -123,18 +123,6 @@ class acf_field_role_selector extends acf_field {
 
 	function create_field( $field ) {
 	    global $wp_roles;
-	    $all_roles = $wp_roles->roles;
-
-		$selected_roles = array();
-		if( !empty( $field['value'] ) && 'object' == $field['return_value'] ) {
-			foreach( $field['value'] as $value ) {
-				$selected_roles[] = $value->name;
-			}
-		}
-		else {
-			$selected_roles = $field['value'];
-		}
-
 
 	    if( $field['field_type'] == 'select' || $field['field_type'] == 'multi_select' ) :
 	    	$multiple = ( $field['field_type'] == 'multi_select' ) ? 'multiple="multiple"' : '';
@@ -142,29 +130,20 @@ class acf_field_role_selector extends acf_field {
 
 			<select name='<?php echo $field['name'] ?>[]' <?php echo $multiple ?>>
 				<?php
-					foreach( $all_roles as $role => $data ) :
-					$selected = ( in_array( $role, $selected_roles ) ) ? 'selected="selected"' : '';
+					foreach( $wp_roles->roles as $role => $data ) :
+					$selected = ( !empty( $field['value'] ) && in_array( $role, $field['value'] ) ) ? 'selected="selected"' : '';
 				?>
 					<option <?php echo $selected ?> value='<?php echo $role ?>'><?php echo $data['name'] ?></option>
 				<?php endforeach; ?>
 
 			</select>
 		<?php
-		elseif( $field['field_type'] == 'radio' ) :
-			echo '<ul class="acf-radio-list radio vertical">';
-			foreach( $all_roles as $role => $data ) :
-				$checked = ( in_array( $role, $selected_roles ) ) ? 'checked="checked"' : '';
-		?>
-		<label><input <?php echo $checked ?> type="radio" name="<?php echo $field['name'] ?>" value="<?php echo $role ?>"><?php echo $data['name'] ?></label>
-		<?php
-			endforeach;
-			echo '</ul>';
 		else :
-			echo '<ul class="acf-checkbox-list checkbox vertical">';
-			foreach( $all_roles as $role => $data ) :
-				$checked = ( in_array( $role, $selected_roles ) ) ? 'checked="checked"' : '';
+			echo '<ul class="acf-'.$field['field_type'].'-list '.$field['field_type'].' vertical">';
+			foreach( $wp_roles->roles as $role => $data ) :
+				$checked = ( !empty( $field['value'] ) && in_array( $role, $field['value'] ) ) ? 'checked="checked"' : '';
 		?>
-			<li><label><input <?php echo $checked ?> type="checkbox" class="checkbox" name="<?php echo $field['name'] ?>[]" value="<?php echo $role ?>"><?php echo $data['name'] ?></label></li>
+		<li><label><input <?php echo $checked ?> type="<?php echo $field['field_type'] ?>" name="<?php echo $field['name'] ?>[]" value="<?php echo $role ?>"><?php echo $data['name'] ?></label></li>
 		<?php
 			endforeach;
 			echo '</ul>';

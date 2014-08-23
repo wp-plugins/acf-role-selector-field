@@ -1,7 +1,7 @@
 === Advanced Custom Fields: User Role Selector Field ===
 Contributors: danielpataki
 Requires at least: 3.4
-Tested up to: 3.9
+Tested up to: 3.9.2
 Stable tag: trunk
 Tags: acf, custom fields
 License: GPLv2 or later
@@ -15,33 +15,25 @@ This plugin helps you out if you need to have the ability to select one or more 
 
 = Compatibility =
 
-This add-on will work with:
-
-* version 4 and up
-* version 3 and below
+This ACF field type is compatible with:
+* ACF 5
+* ACF 4
 
 == Installation ==
 
-This add-on can be treated as both a WP plugin and a theme include.
 
-= Plugin =
-1. Copy the 'acf-role_selector' folder into your plugins folder
-2. Activate the plugin via the Plugins admin page
+1. Copy the `acf-role_selector` folder into your `wp-content/plugins` folder
+2. Activate the Role Selector plugin via the plugins admin page
+3. Create a new field via ACF and select the Role Selector type
+4. Please refer to the description for more info regarding the field type settings
 
-= Include =
-1.	Copy the 'acf-role_selector' folder into your theme folder (can use sub folders). You can place the folder anywhere inside the 'wp-content' directory
-2.	Edit your functions.php file and add the code below (Make sure the path is correct to include the acf-role_selector.php file)
-
-`
-add_action('acf/register_fields', 'my_register_fields');
-
-function my_register_fields()
-{
-	include_once('acf-role_selector/acf-role_selector.php');
-}
-`
 
 == Changelog ==
 
 = 1.0 =
 * Initial Release.
+
+= 2.0 =
+* Added ACF 5 Support
+* Removed ACF 3 Support
+* Fixed an undefined variable error
