@@ -1,7 +1,7 @@
 === Advanced Custom Fields: User Role Selector Field ===
 Contributors: danielpataki
 Requires at least: 3.4
-Tested up to: 3.9.2
+Tested up to: 4.0
 Stable tag: trunk
 Tags: acf, custom fields
 License: GPLv2 or later
