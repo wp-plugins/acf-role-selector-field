@@ -1,7 +1,7 @@
 === Advanced Custom Fields: User Role Selector Field ===
 Contributors: danielpataki
 Requires at least: 3.4
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 Tags: acf, custom fields
 License: GPLv2 or later
@@ -30,10 +30,13 @@ This ACF field type is compatible with:
 
 == Changelog ==
 
-= 1.0 =
-* Initial Release.
+= 2.0.1 =
+* Updated for WordPress 4.1
 
 = 2.0 =
 * Added ACF 5 Support
 * Removed ACF 3 Support
 * Fixed an undefined variable error
+
+= 1.0 =
+* Initial Release.
