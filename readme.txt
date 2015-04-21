@@ -1,4 +1,4 @@
-=== Advanced Custom Fields: User Role Selector Field ===
+=== ACF: User Role Selector ===
 Contributors: danielpataki
 Requires at least: 3.4
 Tested up to: 4.2
