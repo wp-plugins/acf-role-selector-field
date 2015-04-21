@@ -203,7 +203,7 @@ class acf_field_role_selector extends acf_field {
 		<?php
 			endforeach;
 
-			echo '<input type="hidden" name="' .  $field['name'] . '" value="" />';
+			echo '<input type="hidden" name="' .  $field['name'] . '[]" value="" />';
 
 			echo '</ul>';
 		endif;
