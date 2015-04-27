@@ -210,29 +210,6 @@ class acf_field_role_selector extends acf_field {
 	}
 
 
-	/**
-	 * Format Value
-	 *
-	 * This filter is appied to the $value after it is loaded from the
-	 * db and before it is passed to the create_field action
-	 *
-	 * @param mixed $value The value which was loaded from the database
-	 * @param int $post_id The $post_id from which the value was loaded
-	 * @param array $field The details of this field
-	 * @return mixed $value The modified value
-	 * @author Daniel Pataki
-	 * @since 3.0.0
-	 *
-	 */
-	function format_value($value, $post_id, $field) {
-		if( $field['return_value'] == 'object' )
-		{
-			foreach( $value as $key => $name ) {
-				$value[$key] = get_role( $name );
-			}
-		}
-		return $value;
-	}
 
 
 	/**
@@ -251,8 +228,7 @@ class acf_field_role_selector extends acf_field {
 	 */
 	function format_value_for_api($value, $post_id, $field) {
 
-		if( $field['return_value'] == 'object' )
-		{
+		if( $field['return_value'] == 'object' && !empty( $value ) ) {
 			foreach( $value as $key => $name ) {
 				$value[$key] = get_role( $name );
 			}
